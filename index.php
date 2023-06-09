@@ -1,5 +1,24 @@
 <?php
 // php
+
+// function
+function generatePassword($length = 10)
+{
+    $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"£$%&/()=?^*[]@#°§';
+    $password = '';
+    $charsLength = strlen($chars);
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $chars[rand(0, $charsLength - 1)];
+    }
+    return $password;
+}
+
+// get
+$length = $_GET['length'];
+
+// call function
+$password = generatePassword($length);
+
 ?>
 
 <!DOCTYPE html>
@@ -18,18 +37,36 @@
 </head>
 
 <body class="text-bg-dark vh-100">
-    <!-- header with h1 in the center  -->
+    <!-- header -->
     <header class="text-center container-fluid p-2">
-        <h1 class="text-primary">Password Generator</h1>
+        <h1 class="text-primary">Password Generator 💻</h1>
     </header>
 
     <!-- main -->
     <main class="bg-success container-fluid">
-        <!--  -->
+        <!-- form to decided the length -->
+        <div class="card bg-dark text-center text-white w-50 mx-auto m-4">
+            <div class="card-body">
+                <form action="" method="get">
+                    <div class="mb-3">
+                        <label for="length" class="form-label">Password length</label>
+                        <input type="number" class="form-control" id="length" name="length" min="1" max="50" value="10">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate</button>
+                </form>
+            </div>
+        </div>
+        <!-- password -->
+        <div class="card bg-dark text-center text-white w-50 mx-auto">
+            <div class="card-body">
+                <h2 class="card-title">Password</h2>
+                <p class="card-text"><?php echo $password ?></p>
+            </div>
+        </div>
     </main>
 
     <!-- footer -->
-    <footer class="text-center container-fluid p-1 fixed-bottom">
+    <footer class="text-center container-fluid">
         <p class="text-primary">&copy; 2023 🤘</p>
     </footer>
 
