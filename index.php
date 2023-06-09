@@ -1,23 +1,8 @@
 <?php
 // php
 
-// function
-function generatePassword($length = 10)
-{
-    $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"£$%&/()=?^*[]@#°§';
-    $password = '';
-    $charsLength = strlen($chars);
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $chars[rand(0, $charsLength - 1)];
-    }
-    return $password;
-}
-
-// get
-$length = $_GET['length'];
-
-// call function
-$password = generatePassword($length);
+// function file
+include __DIR__ . '/function.php';
 
 ?>
 
@@ -27,7 +12,9 @@ $password = generatePassword($length);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password</title>
+    <title>Password Generator</title>
+    <!-- favicon  -->
+    <link rel="shortcut icon" href="./img/favIcon.png" type="image/x-icon">
     <!-- css -->
     <link rel="stylesheet" href="./style.css">
     <!-- bootstrap -->
