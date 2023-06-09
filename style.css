@@ -7,6 +7,6 @@
 
 header { height: 100px; }
 
-main { min-height: calc(100vh - 18.75rem); }
+main { height: calc(100vh - 18.75rem); }
 
 footer { height: 100px; }
